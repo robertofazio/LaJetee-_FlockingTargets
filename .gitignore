@@ -1,0 +1,7 @@
+/build-tmp/
+/application.macosx/
+
+
+*.db
+Thumbs.db
+
