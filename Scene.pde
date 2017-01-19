@@ -43,13 +43,13 @@ String tScena06 = "00:05:10";  // EXIT
 
 String tScena06a = "00:05:20"; // CONNETIVITA'
 String tScena07 = "00:05:50";  // IN DATA VIZA
-String tScena07a = "00:06:15"; // EXIT
+String tScena07a = "00:06:35"; // EXIT
 
-String tScena08 = "00:06:25";  // EVENTO CAPITALE 
-String tScena08a = "00:07:00"; // IN DATA VIZ
-String tScena09 = "00:07:30";  // EXIT 
+String tScena08 = "00:06:45";  // EVENTO CAPITALE 
+String tScena08a = "00:07:20"; // IN DATA VIZ
+String tScena09 = "00:07:50";  // EXIT 
 
-String tScena10 = "00:07:50";  // FINALE
+String tScena10 = "00:08:02";  // FINALE
 
 float timer = 0;
 // first scene setting
@@ -91,7 +91,7 @@ int scena(int _actualScene)
       file = new SoundFile(this,"audio/1.mp3");
       file.play();
       coloumnTextParagraph = "";
-      firstTitle = "INTRODUZIONE";
+      firstTitle = ""; // INTRODUZIONE
       boidState = boidStateMachine.reset;
       bScene = true;
       break;
@@ -128,15 +128,15 @@ int scena(int _actualScene)
       firstTitle = "PLASTICITA’";
       pushStyle();
       textLeading(30);
-      coloumnTextParagraph = "Cosa vanno a cercare i DS nelle reti?\n64,5% è alla ricerca di formazione e autoformazione";
+      coloumnTextParagraph = "Cosa vanno a cercare i DS nelle reti?\n64,5% è alla ricerca di formazione e autoformazione.";
       popStyle();
       pctText1 = 54; // 54% dei membri sono docenti
       pctText2 = 30; // 30% dei membri sono Direttori amministrativi 
       pctText3 = 16; // 16% dei membri sono divisi fra personale ATA, ricercatori e famiglie.
 
-      primaDesrizione = "dei membri sono docenti";
-      secondaDescrizione = "dei membri sono Direttori amministrativi";
-      terzaDescrizione = "dei membri sono divisi fra personale ATA, ricercatori e famiglie.";
+      primaDesrizione = "dei membri delle reti sono docenti.";
+      secondaDescrizione = "dei membri delle reti sono Direttori amministrativi.";
+      terzaDescrizione = "dei membri delle reti sono divisi fra personale ATA, ricercatori e famiglie.";
       boidState = boidStateMachine.reset;
       bScene = true;
       break;
@@ -226,9 +226,9 @@ int scena(int _actualScene)
       pctText1 = 42.4f; //42,4%
       pctText2 = 38.6f; // 38,6%
       pctText3 = 3.2f; //3,2%
-      primaDesrizione = "è nello stadio di crescita e di sviluppo.";
-      secondaDescrizione = "è nello stadio di maturità.";
-      terzaDescrizione = "è nella fase di declino.";
+      primaDesrizione = "delle reti è nello stadio di crescita e di sviluppo.";
+      secondaDescrizione = "delle reti è nello stadio di maturità.";
+      terzaDescrizione = "delle reti è nella fase di declino.";
 
       boidState = boidStateMachine.reset;
       bScene = true;
@@ -276,16 +276,16 @@ int scena(int _actualScene)
       file = new SoundFile(this,"audio/5.mp3");
       file.play();
       firstTitle = "CONNETIVITA";
-      coloumnTextParagraph = "Il concetto di connettività si applica senza distinzione sia reti on line che off line. Il 70% delle\n"+
+      coloumnTextParagraph = "Il concetto di connettività si applica senza distinzione sia alle reti on line che off line. Il 70% delle\n"+
                               "reti/comunità professionali nasce sul territorio. Il 25% delle reti territoriali nate sul territorio\n"+
                               "si estendono oltre i confini locali, sul web. Questo dato viene confermato anche dall’Indagine Dsinrete\n"+
-                              "riguardo al livello di partecipazione, ma solo se incrociamo due risposte:";
+                              "riguardo al livello di partecipazione, ma solo se incrociamo due risposte.";
       pctText1 = 70f;
       pctText2 = 22f;
       pctText3 = 8f;
-      primaDesrizione = "La partecipazione alla rete è per il 68,4% in presenza";
-      secondaDescrizione = "e per il 22,75% online";
-      terzaDescrizione = "8.85% Altro";
+      primaDesrizione = "la partecipazione alla rete è per il 68,4% in presenza.";
+      secondaDescrizione = "e per il 22,75% online.";
+      terzaDescrizione = "8.85% Altro.";
       boidState = boidStateMachine.reset;
       bScene = true; 
       break;
@@ -337,10 +337,10 @@ int scena(int _actualScene)
       coloumnTextParagraph = "Come si configura l’evento per i DS?\n"+
                               "Per il 70,5% in apprendimento informale.\n"+
                               "Circa il 75% dei dirigenti dichiara che le iniziative di formazione,\n"+
-                              "Eventi Capitali vengono promosse con il coinvolgimento di altre reti.";
-      primaDesrizione = "Organizzazione Seminari e incontri";
-      secondaDescrizione = "Organizzazione percorsi on line.";
-      terzaDescrizione = "Promozione di iniziative di affincamento con mentor o coach";
+                              "Eventi Capitali, vengono promosse con il coinvolgimento di altre reti.";
+      primaDesrizione = "delle reti organizza seminari e incontri.";
+      secondaDescrizione = "delle reti organizza percorsi on line.";
+      terzaDescrizione = "delle reti promuove iniziative di affiancamento con mentor o coach.";
 
       firstTitle = "EVENTO/CAPITALE EVENTO";
 
@@ -593,9 +593,9 @@ void showOverlayFirstScene(boolean _overlay)
       v1 = "7325";
       v2 = "1571";
       v3 = "5754";
-      d1 = "Dirigenti Scolastici in Italia";
-      d2 = "Quelli che hanno partecipato";
-      d3 = "Quelli che ancora possono\ndare il loro contributo";
+      d1 = "sono i Dirigenti Scolastici in Italia.";
+      d2 = "sono quelli che hanno partecipato.";
+      d3 = "sono quelli che ancora possono\ndare il loro contributo.";
       size1 = pct(0.7325, 0, 250);
       size2 = pct(0.1571, 0, 250);
       size3 = pct(0.5754, 0, 250);
@@ -611,7 +611,7 @@ void showOverlayFirstScene(boolean _overlay)
       v2 = "91,8%";
       v3 = "92%";
       d1 = "d’accordo che appartenere a\nuna rete aiuta a contrastare\nil senso di isolamento.";
-      d2 = "DS si sente del tutto o abbastanza\nmotivati a condividere le loro\nconoscenze personali con gli\naltri membri della rete.";
+      d2 = "dei DS si sente del tutto o abbastanza\nmotivati a condividere le loro\nconoscenze personali con gli\naltri membri della rete.";
       d3 = "dei DS si riconosce del\ntutto o abbastanza nei compiti\ne negli intenti della rete.";
       size1 = pct(0.837, 0, 200);
       size2 = pct(0.918, 0, 200);

@@ -1,4 +1,4 @@
-// last update 17.01.2017 - Roberto Fazio Studio
+// last update 19.01.2017 - Roberto Fazio Studio
 
 import processing.sound.*;
 
@@ -422,6 +422,9 @@ void draw()
 
   //SE VUOI VEDERE DISEGNATO IL TARGET SCOMMENTA LA LINEA DI SOTTO
   //  ellipse(myTargetPtr.myTgt.x,myTargetPtr.myTgt.y,10,10);
+
+  // SAVEFRAMES
+  //saveFrame("/Volumes/RF500_2016/frames/####.png");
  
 }
 
@@ -452,4 +455,3 @@ void keyPressed()
   }
     
 }
-
