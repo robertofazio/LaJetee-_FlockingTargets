@@ -12,44 +12,57 @@ int actualScene = 0;
 int cntScene = 0;
 boolean bScene = false;
 
+String tScena00 = "0";  // INTRODUZIONE 
+String tScena01 = "1234";  // IN DATA VIZ
+String tScena01a = "2118"; // EXIT 
+
+String tScena02 = "2662";  // PLASTICITA'
+String tScena02a = "4218"; // IN DATA VIZ
+String tScena03 = "5470";  // EXIT
+
+String tScena03a = "5987"; // COMPORTAMENTO EMERGENTE 
+String tScena04 = "7178";  // IN DATA VIZ 
+String tScena04a = "8246"; // EXIT
+
+String tScena05 = "8764";  // EQUILIBRIO PUNTEGGIATO
+String tScena05a = "9937"; // IN DATA VIZ
+String tScena06 = "11305";  // EXIT 
+
+String tScena06a = "11657"; // CONNETIVITA'
+String tScena07 = "12805";  // IN DATA VIZA
+String tScena07a = "14363"; // EXIT
+
+String tScena08 = "14721";  // EVENTO CAPITALE 
+String tScena08a = "16040"; // IN DATA VIZ
+String tScena09 = "17059";  // EXIT 
+
+String tScena10 = "18000";  // FINALE
+
 // String tScena00 = "00:00:00";  // INTRODUZIONE 
-// String tScena01 = "00:00:05";  // IN DATA VIZ
-// String tScena01a = "00:00:10"; // EXIT 
-// String tScena02 = "00:00:15";  // PLASTICITA'
-// String tScena02a = "00:00:30"; // IN DATA VIZ
-// String tScena03 = "00:00:40";  // EXIT
-// String tScena03a = "00:00:35"; // COMPORTAMENTO EMERGENTE 
-// String tScena04 = "00:01:00";  // IN DATA VIZ 
-// String tScena04a = "00:01:30"; // EXIT
-// String tScena05 = "00:02:00";  // EQUILIBRIO PUNTEGGIATO
-// String tScena05a = "00:02:30"; // IN DATA VIZ
-// String tScena06 = "00:03:00";  // EXIT 
+// String tScena01 = "00:00:35";  // IN DATA VIZ
+// String tScena01a = "00:01:00"; // EXIT 
 
-String tScena00 = "00:00:00";  // INTRODUZIONE 
-String tScena01 = "00:00:35";  // IN DATA VIZ
-String tScena01a = "00:01:00"; // EXIT 
+// String tScena02 = "00:01:15";  // PLASTICITA'
+// String tScena02a = "00:01:55"; // IN DATA VIZ
+// String tScena03 = "00:02:30";  // EXIT
 
-String tScena02 = "00:01:15";  // PLASTICITA'
-String tScena02a = "00:01:55"; // IN DATA VIZ
-String tScena03 = "00:02:30";  // EXIT
+// String tScena03a = "00:02:45"; // COMPORTAMENTO EMERGENTE 
+// String tScena04 = "00:03:15";  // IN DATA VIZ 
+// String tScena04a = "00:03:45"; // EXIT
 
-String tScena03a = "00:02:45"; // COMPORTAMENTO EMERGENTE 
-String tScena04 = "00:03:15";  // IN DATA VIZ 
-String tScena04a = "00:03:45"; // EXIT
+// String tScena05 = "00:04:00";  // EQUILIBRIO PUNTEGGIATO
+// String tScena05a = "00:04:30"; // IN DATA VIZ
+// String tScena06 = "00:05:10";  // EXIT 
 
-String tScena05 = "00:04:00";  // EQUILIBRIO PUNTEGGIATO
-String tScena05a = "00:04:30"; // IN DATA VIZ
-String tScena06 = "00:05:10";  // EXIT 
+// String tScena06a = "00:05:20"; // CONNETIVITA'
+// String tScena07 = "00:05:50";  // IN DATA VIZA
+// String tScena07a = "00:06:35"; // EXIT
 
-String tScena06a = "00:05:20"; // CONNETIVITA'
-String tScena07 = "00:05:50";  // IN DATA VIZA
-String tScena07a = "00:06:35"; // EXIT
+// String tScena08 = "00:06:45";  // EVENTO CAPITALE 
+// String tScena08a = "00:07:20"; // IN DATA VIZ
+// String tScena09 = "00:07:50";  // EXIT 
 
-String tScena08 = "00:06:45";  // EVENTO CAPITALE 
-String tScena08a = "00:07:20"; // IN DATA VIZ
-String tScena09 = "00:07:50";  // EXIT 
-
-String tScena10 = "00:08:02";  // FINALE
+// String tScena10 = "00:08:02";  // FINALE
 
 float timer = 0;
 // first scene setting
@@ -79,7 +92,7 @@ int scena(int _actualScene)
     switch (actualScene) 
     {
       case 0:
-      println("tScena00 : " + time());
+      println("tScena00 : " + time() + " " + cntScene);
       pushMatrix();
       movCam.reset();
       _isMoving = true;
@@ -90,6 +103,11 @@ int scena(int _actualScene)
       file.stop();
       file = new SoundFile(this,"audio/1.mp3");
       file.play();
+
+      //voce.stop();
+      //voce = new SoundFile(this, "audio/v1.mp3");
+      //voce.play();
+
       coloumnTextParagraph = "";
       firstTitle = ""; // INTRODUZIONE
       boidState = boidStateMachine.reset;
@@ -97,13 +115,13 @@ int scena(int _actualScene)
       break;
 
       case 1:
-      println("tScena01 : " + time());
+      println("tScena01 : " + time() + " " + cntScene);
       bOverlayFirstScene = true;
       bScene = true;
       break;
 
       case 2:
-      println("tScena01a : " + time());
+      println("tScena01a : " + time() + " " + cntScene);
       bOverlayFirstScene = false;
       myTargetPtr.myTgt = new PVector(width+width/2,height/2);
       boidState = boidStateMachine.exitBoid;
@@ -111,7 +129,7 @@ int scena(int _actualScene)
       break;
          
       case 3:
-      println("tScena02 : " + time());
+      println("tScena02 : " + time() + " " + cntScene);
       overlay = false;
       pushMatrix();
       movCam.reset();
@@ -124,6 +142,9 @@ int scena(int _actualScene)
       file.stop();
       file = new SoundFile(this,"audio/2.mp3");
       file.play();
+       voce.stop();
+       voce = new SoundFile(this, "audio/v2.mp3");
+       voce.play();
       coloumnTextTitle = "";
       firstTitle = "PLASTICITA’";
       pushStyle();
@@ -142,7 +163,7 @@ int scena(int _actualScene)
       break;
 
       case 4:
-      println("tScena02a : " + time());
+      println("tScena02a : " + time() + " " + cntScene);
       overlay = true;
       if(!goToTarget.b)
       {
@@ -158,7 +179,7 @@ int scena(int _actualScene)
       break; 
 
       case 5:
-      println("tScena03 : " + time());
+      println("tScena03 : " + time() + " " + cntScene);
       overlay = false;
       if(!goToTarget.b)
       {
@@ -175,7 +196,7 @@ int scena(int _actualScene)
        
 
       case 6:
-      println("tScena03a : " + time());
+      println("tScena03a : " + time() + " " + cntScene);
       pushMatrix();
       movCam.reset();
       _speedx = -0.04f;
@@ -185,6 +206,9 @@ int scena(int _actualScene)
       file.stop();
       file = new SoundFile(this,"audio/3.mp3");
       file.play();
+       voce.stop();
+       voce = new SoundFile(this, "audio/v3.mp3");
+       voce.play();
       coloumnTextTitle = "";
       firstTitle = "COMPORTAMENTO EMERGENTE";
       boidState = boidStateMachine.reset;
@@ -192,14 +216,14 @@ int scena(int _actualScene)
       break;
 
       case 7:
-      println("tScena04 : " + time());
+      println("tScena04 : " + time() + " " + cntScene);
       bOverlayFirstScene = true;
       bOverlayOtherScene = true;
       bScene = true;
       break;
 
       case 8:
-      println("tScena04a : " + time());
+      println("tScena04a : " + time() + " " + cntScene);
       bOverlayOtherScene = false;
       bOverlayFirstScene = false;
       myTargetPtr.myTgt = new PVector(width+width/2,height/2);
@@ -208,7 +232,7 @@ int scena(int _actualScene)
       break;
 
       case 9:
-      println("tScena05 : " + time());
+      println("tScena05 : " + time() + " " + cntScene);
       pushMatrix();
       movCam.reset();
       _speedx = -0.06f;
@@ -218,6 +242,9 @@ int scena(int _actualScene)
       file.stop();
       file = new SoundFile(this,"audio/4.mp3");
       file.play();
+       voce.stop();
+       voce = new SoundFile(this, "audio/v4.mp3");
+       voce.play();
       coloumnTextTitle = "";
       firstTitle = "EQUILIBRIO PUNTEGGIATO";
       coloumnTextParagraph = "Secondo i DS, quale aspetto della propria rete può essere migliorato?\n"+
@@ -235,7 +262,7 @@ int scena(int _actualScene)
       break;
 
       case 10:
-      println("tScena05a : "+time());
+      println("tScena05a : " + time() + " " + cntScene);
       overlay = true;
       if(!goToTarget.b)
       {
@@ -250,7 +277,7 @@ int scena(int _actualScene)
       break;
 
       case 11:
-      println("tScena06 : " + time());
+      println("tScena06 : " + time() + " " + cntScene);
       overlay = false;
       if(!goToTarget.b)
       {
@@ -265,7 +292,8 @@ int scena(int _actualScene)
       break;
 
       case 12:
-      println("tScena06a " + time());
+      
+      println("tScena06a " + time() + " " + cntScene);
       pushMatrix();
       movCam.reset();
       _speedx = -0.05f;
@@ -275,6 +303,9 @@ int scena(int _actualScene)
       file.stop();
       file = new SoundFile(this,"audio/5.mp3");
       file.play();
+       voce.stop();
+       voce = new SoundFile(this, "audio/v5.mp3");
+       voce.play();
       firstTitle = "CONNETIVITA";
       coloumnTextParagraph = "Il concetto di connettività si applica senza distinzione sia alle reti on line che off line. Il 70% delle\n"+
                               "reti/comunità professionali nasce sul territorio. Il 25% delle reti territoriali nate sul territorio\n"+
@@ -292,7 +323,7 @@ int scena(int _actualScene)
 
 
       case 13:
-      println("tScena07 : " + time());
+      println("tScena07 : " + time() + " " + cntScene);
       overlay = true;
       if(!goToTarget.b)
       {
@@ -308,7 +339,7 @@ int scena(int _actualScene)
 
 
       case 14:
-      println("tScena07a : " + time());
+      println("tScena07a : " + time() + " " + cntScene);
       overlay = false;
       if(!goToTarget.b)
       {
@@ -323,7 +354,7 @@ int scena(int _actualScene)
       break;
 
       case 15:
-      println("tScena08 : " + time());
+      println("tScena08 : " + time() + " " + cntScene);
       pushMatrix();
       movCam.reset();
       _speedx = -0.06f;
@@ -333,7 +364,9 @@ int scena(int _actualScene)
       file.stop();
       file = new SoundFile(this,"audio/6.mp3");
       file.play();
-
+       voce.stop();
+       voce = new SoundFile(this, "audio/v6.mp3");
+       voce.play();
       coloumnTextParagraph = "Come si configura l’evento per i DS?\n"+
                               "Per il 70,5% in apprendimento informale.\n"+
                               "Circa il 75% dei dirigenti dichiara che le iniziative di formazione,\n"+
@@ -353,7 +386,7 @@ int scena(int _actualScene)
       break;
 
       case 16:
-      println("tScena08a : " + time());
+      println("tScena08a : " + time() + " " + cntScene);
       overlay = true;
       if(!goToTarget.b)
       {
@@ -368,7 +401,7 @@ int scena(int _actualScene)
       break;
 
       case 17:
-      println("tScena09 : " + time());
+      println("tScena09 : " + time() + " " + cntScene);
       overlay = false;
       if(!goToTarget.b)
       {
@@ -393,8 +426,8 @@ int scena(int _actualScene)
   }
   else if (bScene) 
   {
-    //if(cntScene == tScena01)
-    if(time().equals(tScena01))
+   // if(time().equals(tScena01))
+    if(cntScene == int(tScena01))
     {
       tScena01 = "";
       actualScene = 1;
@@ -402,119 +435,119 @@ int scena(int _actualScene)
       
     }
 
-    if(time().equals(tScena01a))
+    if(cntScene == int(tScena01a))
     {
       tScena01a = "";
       actualScene = 2;
       bScene = false;
     }
         
-    if(time().equals(tScena02))
+    if(cntScene == int(tScena02))
     {
       tScena02 ="";
       actualScene = 3;
       bScene = false;
     }
 
-    if(time().equals(tScena02a))
+    if(cntScene == int(tScena02a))
     {
       tScena02a ="";
       actualScene = 4;
       bScene = false;
     }
 
-    if(time().equals(tScena03))
+    if(cntScene == int(tScena03))
     {
       tScena03 = "";
       actualScene = 5;
       bScene = false;
     }
 
-    if(time().equals(tScena03a))
+    if(cntScene == int(tScena03a))
     {
       tScena03a = "";
       actualScene = 6;
       bScene = false;
     }
 
-    if(time().equals(tScena04))
+    if(cntScene == int(tScena04))
     {
       tScena04 = "";
       actualScene = 7;
       bScene = false;
     }
 
-    if(time().equals(tScena04a))
+    if(cntScene == int(tScena04a))
     {
       tScena04a = "";
       actualScene = 8;
       bScene = false;
     }
 
-    if(time().equals(tScena05))
+    if(cntScene == int(tScena05))
     {
       tScena05 = "";
       actualScene = 9;
       bScene = false;
     }
 
-    if(time().equals(tScena05a))
+    if(cntScene == int(tScena05a))
     {
       tScena05a = "";
       actualScene = 10;
       bScene = false;
     }
 
-    if(time().equals(tScena06))
+    if(cntScene == int(tScena06))
     {
       tScena06 = "";
       actualScene = 11;
       bScene = false;
     }
 
-    if(time().equals(tScena06a))
+    if(cntScene == int(tScena06a))
     {
       tScena06a = "";
       actualScene = 12;
       bScene = false;
     }
     
-    if(time().equals(tScena07))
+    if(cntScene == int(tScena07))
     {
       tScena07 = "";
       actualScene = 13;
       bScene = false;
     }
 
-    if(time().equals(tScena07a))
+    if(cntScene == int(tScena07a))
     {
       tScena07a = "";
       actualScene = 14;
       bScene = false;
     }
 
-    if(time().equals(tScena08))
+    if(cntScene == int(tScena08))
     {
       tScena08 = "";
       actualScene = 15;
       bScene = false;
     }
 
-    if(time().equals(tScena08a))
+    if(cntScene == int(tScena08a))
     {
       tScena08a = "";
       actualScene = 16;
       bScene = false;
     }
 
-    if(time().equals(tScena09))
+    if(cntScene == int(tScena09))
     {
       tScena09 = "";
       actualScene = 17;
       bScene = false;
     }
 
-    if(time().equals(tScena10))
+    if(cntScene == int(tScena10))
     {
       tScena10 = "";
       
@@ -525,6 +558,7 @@ int scena(int _actualScene)
   }
 
   cntScene++;
+  //println(cntScene);
   return actualScene;
 
 }

@@ -3,6 +3,7 @@
 import processing.sound.*;
 
 SoundFile file;
+SoundFile voce;
 Flock flock;
 PImage[] bgImage;
 PImage selected;
@@ -23,6 +24,9 @@ int selector = 0;
 int cntFadeText = 0;
 float aFade = 0;
 boolean bFade = false;
+
+boolean bSaveToDisk = true;
+String path = "/Volumes/RF500_2016/frames2/####.tif";
 //MACCHINA A STATI
 enum boidStateMachine
 {
@@ -52,7 +56,7 @@ void setup()
   sw = new StopWatchTimer();
   sw.start();
 
-  frameRate(60);
+  frameRate(25);
   size(1280, 720, P3D);
   goToTarget = new PtrBool();
   setupScrollbars();
@@ -86,6 +90,8 @@ void setup()
 
   file = new SoundFile(this,"audio/1.mp3");
   file.play();
+  voce = new SoundFile(this, "audio/v1.mp3");
+  voce.play();
 
   movCam = new MovCam();
   _isMoving = true;
@@ -102,21 +108,8 @@ void setup()
 void setBoidSwarming()
 {
     goToTarget = new PtrBool();
-    //String lines[] = loadStrings("scena_01.txt");
     timerMachineState = millis();
-    //firstTitle = lines[0];
-    //coloumnTextTitle = lines[1];
-    //coloumnTextParagraph = lines[2];
-    // pctText1 = int(lines[3]);
-    // pctText2 = int(lines[4]);
-    // pctText3 = int(lines[5]);
-    //firstTitle = "";
-    //coloumnTextTitle = "";
-    
-    //pctText1 = 54;
-    //pctText2 = 30;
-    //pctText3 = 16;
-    
+
     makeBoids(numParts, new Rectangle(0,0,width,height), false);
     //makeRectTarget(new Rectangle(width/2-100,height/2-100,200,200), 20, 25);
     
@@ -424,7 +417,8 @@ void draw()
   //  ellipse(myTargetPtr.myTgt.x,myTargetPtr.myTgt.y,10,10);
 
   // SAVEFRAMES
-  //saveFrame("/Volumes/RF500_2016/frames/####.png");
+  if(bSaveToDisk)
+    saveFrame(path);
  
 }
 
