@@ -130,6 +130,9 @@ int scena(int _actualScene)
          
       case 3:
       println("tScena02 : " + time() + " " + cntScene);
+      
+      bSaveToDisk = true;
+      
       overlay = false;
       pushMatrix();
       movCam.reset();
@@ -142,11 +145,11 @@ int scena(int _actualScene)
       file.stop();
       file = new SoundFile(this,"audio/2.mp3");
       file.play();
-       voce.stop();
-       voce = new SoundFile(this, "audio/v2.mp3");
-       voce.play();
+      // voce.stop();
+      // voce = new SoundFile(this, "audio/v2.mp3");
+      // voce.play();
       coloumnTextTitle = "";
-      firstTitle = "PLASTICITA’";
+      firstTitle = "PLASTICITÀ";
       pushStyle();
       textLeading(30);
       coloumnTextParagraph = "Cosa vanno a cercare i DS nelle reti?\n64,5% è alla ricerca di formazione e autoformazione.";
@@ -164,6 +167,7 @@ int scena(int _actualScene)
 
       case 4:
       println("tScena02a : " + time() + " " + cntScene);
+     
       overlay = true;
       if(!goToTarget.b)
       {
@@ -180,6 +184,7 @@ int scena(int _actualScene)
 
       case 5:
       println("tScena03 : " + time() + " " + cntScene);
+        
       overlay = false;
       if(!goToTarget.b)
       {
@@ -193,10 +198,9 @@ int scena(int _actualScene)
       bScene = true;
       break; 
         
-       
-
       case 6:
       println("tScena03a : " + time() + " " + cntScene);
+      bSaveToDisk = false;
       pushMatrix();
       movCam.reset();
       _speedx = -0.04f;
@@ -206,9 +210,9 @@ int scena(int _actualScene)
       file.stop();
       file = new SoundFile(this,"audio/3.mp3");
       file.play();
-       voce.stop();
-       voce = new SoundFile(this, "audio/v3.mp3");
-       voce.play();
+      // voce.stop();
+      // voce = new SoundFile(this, "audio/v3.mp3");
+      // voce.play();
       coloumnTextTitle = "";
       firstTitle = "COMPORTAMENTO EMERGENTE";
       boidState = boidStateMachine.reset;
@@ -232,6 +236,8 @@ int scena(int _actualScene)
       break;
 
       case 9:
+            
+
       println("tScena05 : " + time() + " " + cntScene);
       pushMatrix();
       movCam.reset();
@@ -242,9 +248,9 @@ int scena(int _actualScene)
       file.stop();
       file = new SoundFile(this,"audio/4.mp3");
       file.play();
-       voce.stop();
-       voce = new SoundFile(this, "audio/v4.mp3");
-       voce.play();
+      // voce.stop();
+      // voce = new SoundFile(this, "audio/v4.mp3");
+      // voce.play();
       coloumnTextTitle = "";
       firstTitle = "EQUILIBRIO PUNTEGGIATO";
       coloumnTextParagraph = "Secondo i DS, quale aspetto della propria rete può essere migliorato?\n"+
@@ -277,7 +283,10 @@ int scena(int _actualScene)
       break;
 
       case 11:
+
       println("tScena06 : " + time() + " " + cntScene);
+      
+      
       overlay = false;
       if(!goToTarget.b)
       {
@@ -293,6 +302,7 @@ int scena(int _actualScene)
 
       case 12:
       
+
       println("tScena06a " + time() + " " + cntScene);
       pushMatrix();
       movCam.reset();
@@ -303,10 +313,10 @@ int scena(int _actualScene)
       file.stop();
       file = new SoundFile(this,"audio/5.mp3");
       file.play();
-       voce.stop();
-       voce = new SoundFile(this, "audio/v5.mp3");
-       voce.play();
-      firstTitle = "CONNETIVITA";
+      // voce.stop();
+      // voce = new SoundFile(this, "audio/v5.mp3");
+      // voce.play();
+      firstTitle = "CONNETIVITÀ";
       coloumnTextParagraph = "Il concetto di connettività si applica senza distinzione sia alle reti on line che off line. Il 70% delle\n"+
                               "reti/comunità professionali nasce sul territorio. Il 25% delle reti territoriali nate sul territorio\n"+
                               "si estendono oltre i confini locali, sul web. Questo dato viene confermato anche dall’Indagine Dsinrete\n"+
@@ -354,6 +364,7 @@ int scena(int _actualScene)
       break;
 
       case 15:
+      
       println("tScena08 : " + time() + " " + cntScene);
       pushMatrix();
       movCam.reset();
@@ -364,22 +375,22 @@ int scena(int _actualScene)
       file.stop();
       file = new SoundFile(this,"audio/6.mp3");
       file.play();
-       voce.stop();
-       voce = new SoundFile(this, "audio/v6.mp3");
-       voce.play();
+      // voce.stop();
+      // voce = new SoundFile(this, "audio/v6.mp3");
+      // voce.play();
       coloumnTextParagraph = "Come si configura l’evento per i DS?\n"+
                               "Per il 70,5% in apprendimento informale.\n"+
                               "Circa il 75% dei dirigenti dichiara che le iniziative di formazione,\n"+
                               "Eventi Capitali, vengono promosse con il coinvolgimento di altre reti.";
       primaDesrizione = "delle reti organizza seminari e incontri.";
-      secondaDescrizione = "delle reti organizza percorsi on line.";
-      terzaDescrizione = "delle reti promuove iniziative di affiancamento con mentor o coach.";
+      secondaDescrizione = "delle reti promuove iniziative di affiancamento con mentor o coach.";
+      terzaDescrizione = "delle reti organizza percorsi on line.";
 
       firstTitle = "EVENTO/CAPITALE EVENTO";
 
       pctText1 = 55.6f;
-      pctText2 = 13.9f;
-      pctText3 = 8.6;
+      pctText2 = 8.6f;
+      pctText3 = 13.9f;
 
       boidState = boidStateMachine.reset;
       bScene = true;    
@@ -416,8 +427,10 @@ int scena(int _actualScene)
       break;
 
       case 18 :
+      println("END");
       bFinale = true;
       //bScene = true;
+      exit();
       break; 
 
       default:
@@ -588,7 +601,7 @@ void showOverlay(boolean _overlay)
     noStroke();
     rect(-1,60, width+2, 500);
 }
-
+float posx1,posx2,posx3;
 void showOverlayFirstScene(boolean _overlay)
 {
     if(bOverlayFirstScene)
@@ -622,18 +635,24 @@ void showOverlayFirstScene(boolean _overlay)
 
     if(!bOverlayOtherScene && bOverlayFirstScene)
     {
-      title = "Chi sono i DS?\n Il Ds è femmina nel 65,89%, mentre è maschio nel 34,11 %." + 
+      title = "Chi sono i Dirigenti Scolastici?\n Il Ds è femmina nel 65,89%, mentre è maschio nel 34,11 %." + 
       '\n'+"L’età media è di 55 anni. Circa 80% ha tra i 51 e 65 anni.";
       v1 = "7325";
       v2 = "1571";
-      v3 = "5754";
-      d1 = "sono i Dirigenti Scolastici in Italia.";
-      d2 = "sono quelli che hanno partecipato.";
-      d3 = "sono quelli che ancora possono\ndare il loro contributo.";
+     // v3 = "5754";
+      v3 = "";
+      d1 = "Popolazione Dirigenti scolastici italiani.";
+      d2 = "Partecipanti alla ricerca.";
+      d3 = "";
+      //d3 = "sono quelli che ancora possono\ndare il loro contributo.";
       size1 = pct(0.7325, 0, 250);
       size2 = pct(0.1571, 0, 250);
-      size3 = pct(0.5754, 0, 250);
+      size3 = pct(0.0, 0, 250);
+      //size3 = pct(0.5754, 0, 250);
       hFont = 14;
+      
+      posx1 = pct(0.4, 0, width);
+      posx2 = pct(0.6, 0, width);
     }
     else if (bOverlayOtherScene && bOverlayFirstScene)
     {
@@ -651,6 +670,11 @@ void showOverlayFirstScene(boolean _overlay)
       size2 = pct(0.918, 0, 200);
       size3 = pct(0.920, 0, 200);
       hFont = 22;
+      
+      posx1 = pct(0.3, 0, width);
+      posx2 = pct(0.5, 0, width);
+      posx3 = pct(0.7, 0, width);
+   
     }
     // interspazio scena cerchi
     textLeading(30); 
@@ -661,10 +685,7 @@ void showOverlayFirstScene(boolean _overlay)
     pushMatrix();
     fill(0,0,0,cntFirstScene);
     float h = 350.0f; // h cerchi
-    float posx1 = pct(0.3, 0, width);
-    float posx2 = pct(0.5, 0, width);
-    float posx3 = pct(0.7, 0, width);
-   
+    
     ellipse(posx1, h, size1, size1);
     ellipse(posx2, h, size2, size2);
     ellipse(posx3, h, size3, size3);

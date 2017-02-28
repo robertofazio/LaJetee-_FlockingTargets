@@ -1,4 +1,4 @@
-// last update 19.01.2017 - Roberto Fazio Studio
+// last update 28.02.2017 - Roberto Fazio Studio
 
 import processing.sound.*;
 
@@ -25,8 +25,8 @@ int cntFadeText = 0;
 float aFade = 0;
 boolean bFade = false;
 
-boolean bSaveToDisk = true;
-String path = "/Volumes/RF500_2016/frames2/####.tif";
+boolean bSaveToDisk = false;
+String path = "/Volumes/RF500_2016/02_2017_LAJETEE_FLOCKING_INTERACTIVE_DOC/AE_PROJECT/(Footage)/PLASTICITA/####.tif";
 //MACCHINA A STATI
 enum boidStateMachine
 {
@@ -56,7 +56,7 @@ void setup()
   sw = new StopWatchTimer();
   sw.start();
 
-  frameRate(25);
+  frameRate(30);
   size(1280, 720, P3D);
   goToTarget = new PtrBool();
   setupScrollbars();
@@ -65,7 +65,8 @@ void setup()
   //INSTANZIO IL MIO TARGET
   myTargetPtr = new ptrMyTarget();
   //SETTO LA MIA VARIABILE DI VELOCITA'
-  targetSpeed = 1.0/3.0;
+  //targetSpeed = 1.0/3.0;
+  targetSpeed = 1.0/5.0;
   setBoidSwarming();
   smooth(8);
   
@@ -80,7 +81,7 @@ void setup()
   font = createFont("Edmondsans-Regular", 32);
   
   bgImage = new PImage[6];
-  bgImage[0] = loadImage("img/bn/italy.jpg");
+  bgImage[0] = loadImage("img/bn/intro.jpg");
   bgImage[1] = loadImage("img/bn/emilia.jpg");
   bgImage[2] = loadImage("img/bn/lazio.jpg");
   bgImage[3] = loadImage("img/bn/liguria.jpg");
@@ -90,8 +91,9 @@ void setup()
 
   file = new SoundFile(this,"audio/1.mp3");
   file.play();
-  voce = new SoundFile(this, "audio/v1.mp3");
-  voce.play();
+
+  //voce = new SoundFile(this, "audio/v1.mp3");
+  //voce.play();
 
   movCam = new MovCam();
   _isMoving = true;
@@ -414,7 +416,7 @@ void draw()
   
 
   //SE VUOI VEDERE DISEGNATO IL TARGET SCOMMENTA LA LINEA DI SOTTO
-  //  ellipse(myTargetPtr.myTgt.x,myTargetPtr.myTgt.y,10,10);
+    //ellipse(myTargetPtr.myTgt.x,myTargetPtr.myTgt.y,10,10);
 
   // SAVEFRAMES
   if(bSaveToDisk)
